@@ -1,12 +1,23 @@
-from unstructured.partition.auto import partition
+# from unstructured.partition.auto import partition
+from unstructured.partition.auto import partition_pdf
 
 # PDF文件路径
 pdf_path = "../../data/C2/pdf/rag.pdf"
 
 # 使用Unstructured加载并解析PDF文档
-elements = partition(
+# elements = partition(
+#     filename=pdf_path,
+#     content_type="application/pdf"
+# )
+#使用hi_rec加载并解析
+# elements = partition_pdf(
+#     filename=pdf_path,
+#     strategy="hi_res"
+# )
+#使用ocr_only加载并解析
+elements = partition_pdf(
     filename=pdf_path,
-    content_type="application/pdf"
+    strategy="ocr_only"
 )
 
 # 打印解析结果
